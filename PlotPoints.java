@@ -27,6 +27,21 @@ public class PlotPoints {
 	    return;
 	}
 
+	if (L == E-1) {
+	    if (x[L] > x[E]) {
+		double temp = x[L];
+		x[L] = x[E];
+		x[E] = temp;
+
+		temp = y[L];
+		y[L] = y[E];
+		y[E] = temp;
+
+	    }
+
+	    return;
+	}
+
 	int middle = (L+E) / 2;
 
 	// Recursively sort the left half.
