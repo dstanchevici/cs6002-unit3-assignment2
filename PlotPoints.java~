@@ -1,0 +1,77 @@
+import java.util.*;
+
+public class PlotPoints {
+
+    public static void main (String[] argv)
+    {
+	DrawTool.display ();
+	DrawTool.setXYRange (0,10, 0,10);
+
+	double[] x = {4.82, 1.61, 7.22, 2.4, 8.78, 3.2, 5.59, 6.38, 8.0, 4.0};
+	double[] y = {1.51, 6.12, 3.44, 4.2, 7.28, 2.8, 1.64, 2.28, 5.1, 1.9};
+
+	System.out.println (Arrays.toString(x));
+	//sort (x, y);
+	sort (x, 0, x.length-1);
+	System.out.println (Arrays.toString(x));	
+	//DrawTool.drawCurve (x,y);
+    }
+
+    // Merge sort
+    static void sort (double[] data, int L, int E)
+    {
+	//Base case
+	if (L == E || L == E-1) {
+	    return;
+	}
+
+	int middle = (L+E) / 2;
+
+	// Recursively sort the left half.
+	sort (data, L, middle);
+
+	// Recursively sort the right half.
+	sort (data, middle+1, E);
+
+	// Merge the two halves (by now sorted):
+	mergeRange (data, L, middle+1, E);
+	
+    }
+
+    static void mergeRange (double[] data, int L, int R, int E)
+    {
+	// Create the merge space.
+	double[] mergeSpace = new double [E-L+1];
+
+	// Use two cursors, for left and right sides.
+	int leftCursor = L;
+	int rightCursor = R;
+
+	// Fill mergeSpace
+	for (int i=0; i < mergeSpace.length; i++) {
+	    
+	    // If leftCursor is past limit, merge from right
+	    if (leftCursor >= R) {
+		mergeSpace[i] = data[rightCursor++];
+	    }
+	    // If rightCurso is past limit, merge from left
+	    else if (rightCursor > E) {
+		mergeSpace[i] = data[leftCursor++];
+	    }
+	    // Otherwise, if left half element is less, move it
+	    else if (data[leftCursor] <= data[rightCursor]) {
+		mergeSpace[i] = data[leftCursor++];
+	    }
+	    // Finally, in all other cases move from right.
+	    else {
+		mergeSpace[i] = data[rightCursor++];
+	    }
+	} // end-for
+
+	// Copy back into data
+	for (int i=0; i < mergeSpace.length; i++) {
+	    data[L+i] = mergeSpace[i];
+	}
+    } //end-mergeRange
+
+}
