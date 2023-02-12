@@ -1,0 +1,31 @@
+import java.util.*;
+
+public class SelectionSortRecursion {
+
+    public static void main (String[] argv)
+    {
+	int[] A = {51, 24, 63, 73, 42, 85, 71, 41, 87, 32};
+	selectionSortRecursive (A, 0);
+	System.out.println (Arrays.toString(A));
+
+	/*
+	String[] B = {"the", "quick", "brown", "fox", "jumps", "over", "a", "lazy", "dog"};
+	selectionSortRecursive (B, 0);
+	System.out.println (Arrays.toString(B));
+	*/
+    }
+
+    static void selectionSortRecursive (int[] A, int startOfRemainder)
+    {
+	// WRITE THE REST OF THE METHOD HERE:
+
+	// Put the bottom out case here.
+
+	// Find the smallest value from A[startOfRemainder] to A[A.length-1]
+	// and swap that into A[startOfRemainder].
+
+	// Recurse from next position onwards.
+	selectionSortRecursive (A, startOfRemainder+1);
+    }
+
+}

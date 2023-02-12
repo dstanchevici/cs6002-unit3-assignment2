@@ -8,12 +8,13 @@ public class SortNamesAndAges {
 	String[] names = {"Dave", "Carol", "Alice","Bob", "Franco", "Ella"};
 	int[] ages = {23, 21, 24, 27, 25, 22};
 	performTest (names, ages);
-	/*
+		
 	// Test 2:
 	String[] names2 = {"LaTisha", "Irene", "Harry", "Kay", "Jenny"};
 	int[] ages2 = {21, 23, 22, 25, 27};
 	performTest (names2, ages2);
-	*/
+	
+	
     }
 
     static void performTest (String[] names, int[] ages)
@@ -56,16 +57,18 @@ public class SortNamesAndAges {
 	for (int i=0; i < sortOrder.length; i++) {
 	    
 	    int minInd = 0;
+	    while (copyNames[minInd] == null) {
+		minInd++;
+	    }
 		
 	    for (int j = 0; j < copyNames.length; j++) {
-		if ( copyNames[j].compareTo(copyNames[minInd]) < 0 ) {
+		if ( copyNames[j] != null && copyNames[minInd] != null  && copyNames[j].compareTo(copyNames[minInd]) < 0 ) {
 		    minInd = j;
 		}
 	    }
 
-	    copyNames[minInd] = "zzzz";
+	    copyNames[minInd] = null;
 	    sortOrder[i] = minInd;
-
 	} 
 	
 	return sortOrder;
@@ -91,7 +94,7 @@ public class SortNamesAndAges {
 		}
 	    }
 
-	    copyAges[minInd] = 1_000;
+	    copyAges[minInd] = Integer.MAX_VALUE;
 	    sortOrder[i] = minInd;	    
 	} 
 	
