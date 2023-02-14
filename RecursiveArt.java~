@@ -1,0 +1,14 @@
+
+public class RecursiveArt {
+
+    public static void main (String[] argv)
+    {
+	DrawTool.display ();
+	DrawTool.setXYRange (0, 10, 0, 10);
+	
+	// CALL YOUR RECURSIVE METHOD(S) HERE:
+    }
+
+    // AND WRITE IT/THEM HERE
+
+}
