@@ -23,7 +23,7 @@ public class RecursiveArt {
 	double radius = side/2;
 	
 	// Base
-	if (side < 0.6 || radius < 0.6) {
+	if (side < 1 || radius < 1) {
 	    return;
 	}
 
