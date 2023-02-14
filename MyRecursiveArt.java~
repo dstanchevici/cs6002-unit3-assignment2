@@ -1,0 +1,11 @@
+public class MyRecursiveArt.java {
+
+    public static void main (String[] argv)
+    {
+	DrawTool.display ();
+        DrawTool.setXYRange (0, 10, 0, 10);
+    }
+
+
+
+}
