@@ -6,6 +6,30 @@ public class MyRecursiveArt {
         DrawTool.setXYRange (0, 10, 0, 10);
 
 	drawPattern (1.0, 9.0);
+
+	drawCircle (7.0, 5.0);
+    }
+
+    static void drawCircle (double x, double y)
+    {
+	DrawTool.drawCircle (x,y, 2.0);
+	drawSegments (x, y, 2.0, 10.0);
+    }
+
+    static void drawSegments (double x, double y, double radius, double angle)
+    {
+
+	if (angle >= 60) {
+	    return;
+	}
+
+	double newY = y + (Math.sin(angle) * radius);
+	double newX  = x - (Math.cos(angle) * radius);
+	DrawTool.drawLine (x,y, newX,newY);
+
+	angle += 10;
+	drawSegments (x, y, radius, angle);
+
     }
 
     static void drawPattern (double x, double y)
